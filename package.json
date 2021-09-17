@@ -1,0 +1,45 @@
+{
+  "name": "dnsimple-ddns-sync",
+  "version": "1.0.0",
+  "description": "Updates DNSimple A/AAAA records when they become out of sync",
+  "author": "Taylor Silenzio <tsilenzio@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/tsilenzio/node-dnsimple-ddns-sync#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tsilenzio/node-dnsimple-ddns-sync.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tsilenzio/node-dnsimple-ddns-sync/issues"
+  },
+  "keywords": [
+    "dnsimple",
+    "dynamic dns",
+    "ddns",
+    "dns",
+    "domain management"
+  ],
+  "main": "index.js",
+  "module": "index.js",
+  "engines": {
+    "node": "14.17.6",
+    "npm": "^7.23.0"
+  },
+  "scripts": {
+    "lint": "eslint --format stylish \"./**/*.js\"",
+    "lint:fix": "eslint --fix --format stylish \"./**/*.js\""
+  },
+  "dependencies": {
+    "dnsimple": "^5.0.0",
+    "dotenv": "^10.0.0",
+    "esm": "^3.2.25",
+    "public-ip": "^4.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0"
+  }
+}

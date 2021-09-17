@@ -1,0 +1,26 @@
+{
+  "plugins": [
+    "node",
+    "promise",
+    "import"
+  ],
+  "extends": ["eslint-config-airbnb-base"],
+  "env": {
+    "browser": false,
+    "node": true,
+    "mocha": true,
+    "amd": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "brace-style": ["error", "1tbs"],
+    "radix": ["error", "as-needed"],
+    "no-console": ["error", { "allow": ["error", "info", "trace", "warn"] }],
+    "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }]
+  },
+  "globals": {}
+}
