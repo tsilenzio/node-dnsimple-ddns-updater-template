@@ -31,7 +31,7 @@ Add or remove entries to `settings.json` under the `records` property as needed.
 
 The format is as follows:
 
-```json
+```javascript
 {
     "id": "<record id>",
     "domain": "<domain name>",
@@ -41,7 +41,7 @@ The format is as follows:
 ```
 
 Example:
-```json
+```javascript
 {
     "id": "1234", // A type record
     "domain": "example.com",
@@ -49,7 +49,7 @@ Example:
     "address": ""
 }
 ```
-```json
+```javascript
 {
     "id": "6789", // AAAA type record
     "domain": "example.com",
