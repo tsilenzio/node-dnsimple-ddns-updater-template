@@ -1,0 +1,23 @@
+{
+	"records": [{
+		"id": "1234",
+		"domain": "example.com",
+		"type": "ipv4",
+		"address": "::"
+	}, {
+		"id": "2345",
+		"domain": "example.com",
+		"type": "ipv6",
+		"address": "::"
+	}, {
+		"id": "5678",
+		"domain": "another-domain.com",
+		"type": "ipv4",
+		"address": "0.0.0.0"
+	}, {
+		"id": "6789",
+		"domain": "another-domain.com",
+		"type": "ipv6",
+		"address": "::"
+	}]
+}

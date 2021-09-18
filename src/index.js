@@ -1,9 +1,10 @@
-import { IP, DNSimple } from './lib';
-import config from './config';
+import { IP, DNSimple, Settings } from './lib';
 
 const ip = new IP();
 const dns = new DNSimple();
-const { records } = config.load();
+
+const settings = new Settings('./settings.json');
+const { records } = settings.load();
 
 async function processRecords() {
   // Lookup public ip address
@@ -17,7 +18,7 @@ async function processRecords() {
     // Store reference to ip version: ipv4/ipv6
     const ver = record.type;
 
-    // Check if the ip from config matches the public ip
+    // Check if the ip from settings matches the public ip
     if (!ip[ver](record.address)) {
       const {
         id,
@@ -26,7 +27,7 @@ async function processRecords() {
         ttl = 600,
       } = record;
 
-      // Update IP in config and on DNSimple
+      // Update IP in settings and on DNSimple
       console.info(`Updating record ${id} ${ver} for ${domain} from ${address} to ${ip[ver]()}`);
       updates.push(dns.updateRecord(id, domain, {
         content: ip[ver](),
@@ -48,7 +49,7 @@ async function processRecords() {
   }).then(() => {
     // Save the IP changes if anything changed
     if (updates.length) {
-      config.save();
+      settings.save();
     } else {
       console.info('No records need to be updated');
     }
