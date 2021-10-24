@@ -23,12 +23,13 @@ async function processRecords() {
       const {
         id,
         domain,
+        label,
         address,
         ttl = 600,
       } = record;
 
       // Update IP in settings and on DNSimple
-      console.info(`Updating record ${id} ${ver} for ${domain} from ${address} to ${ip[ver]()}`);
+      console.info(`Updating record ${id} ${ver} for ${label} from ${address} to ${ip[ver]()}`);
       updates.push(dns.updateRecord(id, domain, {
         content: ip[ver](),
         ttl,
@@ -43,8 +44,11 @@ async function processRecords() {
   Promise.all(updates).then((results) => {
     // eslint-disable-next-line no-restricted-syntax
     for (const result of results) {
-      const { id, zone_id: domain, content: address } = result;
-      console.info(`Updated record ${id} for ${domain} to ${address}`);
+      const {
+        id, name, zone_id: domain, content: address,
+      } = result;
+      const fqdn = name === '' ? domain : `${name}.${domain}`;
+      console.info(`Updated record ${id} for ${fqdn} to ${address}`);
     }
   }).then(() => {
     // Save the IP changes if anything changed
